@@ -1,0 +1,77 @@
+.container {
+  padding: 2rem;
+}
+
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.produto-card {
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.produto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.produto-img {
+  width: 60%;
+  height: auto;
+  object-fit: cover;
+  transition: filter 0.3s ease;
+  margin: 0 65px;
+}
+
+.produto-card:hover .produto-img {
+  filter: brightness(1.05);
+}
+
+.centered-text {
+  text-align: center;
+  padding: 0.5rem 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+mat-card-title.centered-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+mat-card-content.centered-text {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+mat-card-actions.both-buttons {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1rem;
+}
+
+mat-card-actions button {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border-radius: 8px;
+}
+
+mat-card-actions button:hover {
+  background-color: #1976d2 !important;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+p {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-top: 2rem;
+  color: #777;
+}
