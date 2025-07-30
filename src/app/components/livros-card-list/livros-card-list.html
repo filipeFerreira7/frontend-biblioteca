@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="responsive-grid" *ngIf="cards().length > 0">
+    <mat-card class="produto-card" *ngFor="let card of cards()">
+      <img mat-card-image class="produto-img centered-image" src="assets/img/book_default.png" alt="Capa do livro" />
+      <mat-card-title class="centered-text">{{ card.titulo }}</mat-card-title>
+      <mat-card-content class="centered-text">Autor: {{ card.autor }}</mat-card-content>
+      <mat-card-content class="centered-text">
+        <span *ngIf="card.disponivel; else emprestado">Disponível</span>
+        <ng-template #emprestado>
+          <span style="color: red;">Emprestado</span>
+        </ng-template>
+      </mat-card-content>
+      <mat-card-actions class="both-buttons">
+        <button mat-button color="primary" [routerLink]="['/livros', card.id]">Ver mais</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <p *ngIf="cards().length === 0">Nenhum livro disponível no momento.</p>
+</div>
