@@ -1,0 +1,110 @@
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+.input-usuario {
+  margin-bottom: 1rem;
+}
+
+input[type='number'] {
+  padding: 0.4rem;
+  width: 100px;
+  font-size: 1rem;
+}
+
+.lista-livros {
+  list-style: none;
+  padding: 0;
+}
+
+.livro-card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  background-color: #fafafa;
+}
+
+.livro-card h3 {
+  margin: 0 0 0.5rem 0;
+}
+
+.btn {
+  cursor: pointer;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-emprestar {
+  background-color: #28a745;
+}
+
+.btn-emprestar:hover {
+  background-color: #218838;
+}
+
+.btn-devolver {
+  background-color: #dc3545;
+}
+
+.btn-devolver:hover {
+  background-color: #c82333;
+}
+
+.mensagem {
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+.mensagem.sucesso {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.mensagem.erro {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+.header-bar {
+  background-color: rgb(20, 50, 60); /* um pouco mais escuro que o body */
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* sombra sutil para destacar */
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-bar {
+  background-color: rgb(20, 50, 60); /* um pouco mais escuro que o body */
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* sombra sutil para destacar */
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.faixa-spacer {
+  flex: 1 ;
+}
+
+.header-icon {
+  width: 90px;
+  height: auto;
+  margin: 0 2px;
+  padding: 2%;
+  padding-bottom: 1%;
+}
+
+.header-icon-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}

@@ -1,0 +1,50 @@
+<mat-toolbar class="header-bar">
+  <a [routerLink]="['/']" class="header-icon">
+    <img src="assets/img/img_1.png" class="header-icon" />
+  </a>
+
+  <div class="faixa-spacer"></div>
+</mat-toolbar>
+
+
+<div class="container">
+  <h2>Livros Disponíveis</h2>
+
+  <div class="input-usuario">
+    <label for="usuarioId">ID do Usuário:</label>
+    <input
+      type="number"
+      id="usuarioId"
+      [(ngModel)]="usuarioId"
+      placeholder="Digite seu ID"
+      min="1"
+    />
+  </div>
+
+  <div *ngIf="mensagem" class="mensagem sucesso">{{ mensagem }}</div>
+  <div *ngIf="erro" class="mensagem erro">{{ erro }}</div>
+
+  <ul class="lista-livros">
+    <li *ngFor="let livro of livros" class="livro-card">
+      <h3>{{ livro.titulo }}</h3>
+      <p><strong>Autor:</strong> {{ livro.autor }}</p>
+      <p><strong>Disponível:</strong> {{ livro.disponivel ? 'Sim' : 'Não' }}</p>
+
+      <button
+        *ngIf="livro.disponivel"
+        (click)="emprestarLivro(livro.id)"
+        class="btn btn-emprestar"
+      >
+        Emprestar
+      </button>
+
+      <button
+        *ngIf="!livro.disponivel"
+        (click)="devolverLivro(livro.id)"
+        class="btn btn-devolver"
+      >
+        Devolver
+      </button>
+    </li>
+  </ul>
+</div>

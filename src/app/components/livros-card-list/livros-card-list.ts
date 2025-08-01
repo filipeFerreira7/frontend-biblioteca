@@ -20,7 +20,7 @@ type Card = {
   templateUrl: './livros-card-list.html',
   styleUrl: './livros-card-list.css'
 })
-export class LivrosCardList implements OnInit {
+export class LivrosCardListComponent implements OnInit {
   livros: Livro[] = [];
   cards = signal<Card[]>([]);
 

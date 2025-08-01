@@ -1,0 +1,58 @@
+<mat-toolbar class="header-bar">
+  <a [routerLink]="['/']" class="header-icon">
+    <img src="assets/img/img_1.png" class="header-icon" />
+  </a>
+
+  <div class="faixa-spacer"></div>
+</mat-toolbar>
+
+<div class="container" *ngIf="livro; else loadingOrError">
+  <mat-card class="product-detail-card">
+    <div class="product-detail-container">
+      <div class="product-image-container">
+        <img 
+          src="assets/img/book.png" 
+          alt="{{ livro.titulo }}" 
+          class="product-detail-image"
+        >
+      </div>
+
+      <div class="product-info-container">
+        <mat-card-header>
+          <mat-card-title class="product-title">{{ livro.titulo }}</mat-card-title>
+          <mat-card-subtitle class="product-author">Autor: {{ livro.autor }}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <h3 class="section-title">Status</h3>
+          <p *ngIf="livro.disponivel; else emprestado" style="color: #2e7837;">Disponível</p>
+          <ng-template #emprestado>
+            <p style="color: red;">Emprestado</p>
+          </ng-template>
+
+          <div *ngIf="livro.dataEmprestimo || livro.dataDevolucao">
+            <p *ngIf="livro.dataEmprestimo">Data de Empréstimo: {{ livro.dataEmprestimo | date:'shortDate' }}</p>
+            <p *ngIf="livro.dataDevolucao">Data de Devolução: {{ livro.dataDevolucao | date:'shortDate' }}</p>
+          </div>
+        </mat-card-content>
+
+        <mat-card-actions>
+          <a mat-flat-button color="primary" [routerLink]="['/']">
+            <mat-icon>arrow_back</mat-icon>
+            Voltar
+          </a>
+        </mat-card-actions>
+      </div>
+    </div>
+  </mat-card>
+</div>
+
+<ng-template #loadingOrError>
+  <div class="loading-container">
+    <mat-spinner *ngIf="carregando"></mat-spinner>
+    <div *ngIf="!carregando" class="error-message">
+      <mat-icon>error_outline</mat-icon>
+      <p>Livro não encontrado</p>
+    </div>
+  </div>
+</ng-template>

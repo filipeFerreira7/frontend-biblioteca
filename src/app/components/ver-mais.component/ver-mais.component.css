@@ -1,0 +1,351 @@
+.container {
+    width: 100%;
+}
+
+.responsive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center; /* Centraliza os itens horizontalmente */
+    align-items: stretch;
+}
+
+.produto-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    width: 250px; /* Ocupa toda a largura do grid cell */
+
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* ajuda a preencher o espaço */
+    min-height: 460px; /* ajuste conforme necessário */
+}
+
+.centered-text {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90%;
+    height: 240px;
+  }
+
+  .header-bar{
+  position: relative;
+  background-color: rgb(17, 34, 131);
+  padding: 2.5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.faixa-spacer {
+    flex: 1 ;
+}
+.header-icon {
+    width: 250px;
+    height: auto;
+    margin: 0 -2px;
+  }
+
+  .header-icon-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  .header-link{
+    color: rgba(204, 204, 204, 0.959);
+    font-family: 'Montserrat';
+    margin: 1 670px;
+    display: flex; 
+    justify-content: center;
+    gap: 45px;      
+    align-items: center;   
+  }
+  a {
+  text-decoration: none; /* remove o sublinhado */
+  color: inherit; /* herda a cor do texto pai */
+}
+
+a:hover {
+  color: inherit; /* mantém a cor no hover */
+  text-decoration: none; /* evita que reapareça o sublinhado */
+}
+
+/* Centralizar a search bar no header */
+.search-bar {
+  position: static;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 350px;
+  padding-top: 6.5%;
+}
+
+/* Aparência transparente interna */
+.search-bar .mat-form-field-flex {
+  background: rgba(255, 255, 255, 0.05); /* transparente mais suave */
+  border-radius: 24px;
+  padding: 0.5em 0.75em;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Remover sublinhado padrão */
+.search-bar .mat-form-field-underline {
+  display: none;
+}
+
+/* Evita sobreposição do texto ao digitar */
+.search-bar .mat-form-field-infix {
+  padding: 0.5em 0;
+  color: white;
+  min-width: 0;
+  width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Texto digitado e cursor branco */
+.search-bar .mat-input-element {
+  color: rgba(255, 255, 255, 0.384);
+  caret-color: white;
+  padding: 0;
+}
+
+/* Ícone da lupa branco */
+.search-bar .mat-icon {
+  color: white;
+}
+
+/* Efeitos ao focar */
+.search-bar:hover .mat-form-field-flex,
+.search-bar.mat-focused .mat-form-field-flex {
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.2);
+}
+
+
+.botao-customizado {
+  padding: 15px 25px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  text-transform: uppercase;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  color: white;
+  margin: 3% auto;
+  justify-content: center;
+}
+
+.botao-ver-mais {
+  background: linear-gradient(to right, #1b36cc, #5c6bc0);
+  
+}
+
+.botao-ver-mais:hover {
+  background: linear-gradient(to right, #303f9f, #7936d1);
+  transform: translateY(-2px);
+}
+
+.botao-adicionar {
+  background: linear-gradient(to right, #cecfce, #bebebe);
+}
+
+.botao-adicionar:hover {
+  background: linear-gradient(to right, #aba2ff, #c3ccff);
+  transform: translateY(-2px);
+}
+
+
+
+.produto-card:hover {
+  transform: translateY(-5px);
+}
+
+.produto-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+
+mat-card-title, mat-card-content {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 12px;
+}
+
+mat-card-footer {
+  display: flex;
+  justify-content: center;
+  padding: 1px auto;
+}
+
+.card-container img {
+  max-width: 100%;
+  height: 200px;
+  object-fit: contain;
+  margin: 0 auto;
+  padding: 10px;
+}
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.product-detail-card {
+  margin: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-detail-container {
+  display: flex;
+  flex-direction: row;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.product-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-detail-image {
+  max-width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.product-info-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.product-title {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 1.9rem;
+}
+
+.product-price {
+  font-size: 1.5rem;
+  color: #000000;
+  font-weight: bold;
+
+}
+
+.section-title {
+  font-size: 1.2rem;
+  margin: 1.5rem 0 0.5rem 0;
+  color: #333;
+}
+
+.product-description {
+  line-height: 1.8;
+  color: #555;
+}
+
+.specs-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.specs-list li {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.product-actions {
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.add-to-cart-button {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.error-message {
+  text-align: center;
+  color: #d32f2f;
+}
+
+.error-message mat-icon {
+  font-size: 3rem;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .product-detail-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .product-image-container {
+    margin-bottom: 1rem;
+  }
+}
+
+.header-bar {
+  background-color: rgb(20, 50, 60); /* um pouco mais escuro que o body */
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* sombra sutil para destacar */
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.faixa-spacer {
+  flex: 1 ;
+}
+
+.header-icon {
+  width: 90px;
+  height: auto;
+  margin: 0 2px;
+  padding: 2%;
+  padding-bottom: 1%;
+}
+
+.header-icon-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}

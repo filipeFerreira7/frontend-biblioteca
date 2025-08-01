@@ -2,7 +2,7 @@
   background-color: rgb(20, 50, 60); /* um pouco mais escuro que o body */
   color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* sombra sutil para destacar */
-  padding: 20px;
+  padding: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -24,4 +24,15 @@
   align-items: center;
   text-decoration: none;
 }
-
+h1{
+  padding-top: 3%;
+  color:white;
+  text-align: center;
+}
+p{
+  padding-top: 1%;
+  padding-bottom: 0.5%;
+  color: #cecece;
+  text-align: center;
+  font-weight: 400;
+}
