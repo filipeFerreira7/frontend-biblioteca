@@ -10,29 +10,45 @@
   <mat-card class="product-detail-card">
     <div class="product-detail-container">
       <div class="product-image-container">
-        <img 
-          src="assets/img/book.png" 
-          alt="{{ livro.titulo }}" 
+        <img
+          src="assets/img/book.png"
+          alt="{{ livro.titulo }}"
           class="product-detail-image"
-        >
+        />
       </div>
 
       <div class="product-info-container">
         <mat-card-header>
-          <mat-card-title class="product-title">{{ livro.titulo }}</mat-card-title>
-          <mat-card-subtitle class="product-author">Autor: {{ livro.autor }}</mat-card-subtitle>
+          <mat-card-title class="product-title">{{
+            livro.titulo
+          }}</mat-card-title>
+          <mat-card-subtitle class="product-author"
+            >Autor: {{ livro.autor }}</mat-card-subtitle
+          >
         </mat-card-header>
 
         <mat-card-content>
+          <h3 class="section-title">Descrição</h3>
+          <p class="product-description">
+            {{ livro.descricao || "Nenhuma descrição disponível" }}
+          </p>
+
           <h3 class="section-title">Status</h3>
-          <p *ngIf="livro.disponivel; else emprestado" style="color: #2e7837;">Disponível</p>
+          <p *ngIf="livro.disponivel; else emprestado" style="color: #2e7837">
+            Disponível
+          </p>
           <ng-template #emprestado>
-            <p style="color: red;">Emprestado</p>
+            <p style="color: red">Emprestado</p>
           </ng-template>
 
           <div *ngIf="livro.dataEmprestimo || livro.dataDevolucao">
-            <p *ngIf="livro.dataEmprestimo">Data de Empréstimo: {{ livro.dataEmprestimo | date:'shortDate' }}</p>
-            <p *ngIf="livro.dataDevolucao">Data de Devolução: {{ livro.dataDevolucao | date:'shortDate' }}</p>
+            <p *ngIf="livro.dataEmprestimo">
+              Data de Empréstimo:
+              {{ livro.dataEmprestimo | date : "shortDate" }}
+            </p>
+            <p *ngIf="livro.dataDevolucao">
+              Data de Devolução: {{ livro.dataDevolucao | date : "shortDate" }}
+            </p>
           </div>
         </mat-card-content>
 

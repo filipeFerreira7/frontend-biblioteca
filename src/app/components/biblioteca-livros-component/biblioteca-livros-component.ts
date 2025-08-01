@@ -5,21 +5,24 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common'; // 👈 IMPORTANTE
 import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink } from '@angular/router';
+import { MatIcon } from '@angular/material/icon';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-biblioteca-livros',
   standalone: true, // 👈 se ainda não estiver declarado
   templateUrl: './biblioteca-livros-component.html',
   styleUrls: ['./biblioteca-livros-component.css'],
-  imports: [CommonModule, FormsModule,MatToolbarModule,RouterLink] // 👈 Adicione aqui o CommonModule
+  imports: [CommonModule, FormsModule,MatToolbarModule,RouterLink,MatIcon] // 👈 Adicione aqui o CommonModule
 })
 export class BibliotecaLivrosComponent implements OnInit {
   livros: Livro[] = [];
+  usuarioMat!: String;
   usuarioId!: number;
   mensagem: string = '';
   erro: string = '';
 
-  constructor(private bibliotecaService: BibliotecaService) {}
+  constructor(private bibliotecaService: BibliotecaService, private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     this.carregarLivros();
@@ -37,25 +40,38 @@ export class BibliotecaLivrosComponent implements OnInit {
       }
     });
   }
-
-  emprestarLivro(idLivro: number): void {
-    if (!this.usuarioId) {
-      this.erro = 'Informe o ID do usuário para emprestar um livro.';
-      return;
-    }
-
-    this.bibliotecaService.emprestarLivro(this.usuarioId, idLivro).subscribe({
-      next: () => {
-        this.mensagem = 'Livro emprestado com sucesso!';
-        this.erro = '';
-        this.carregarLivros();
-      },
-      error: (err) => {
-        this.erro = 'Erro ao emprestar livro: ' + (err.error?.message || err.message || err.statusText);
-        this.mensagem = '';
-      }
-    });
+emprestarLivro(idLivro: number): void {
+  if (!this.usuarioMat) {
+    this.erro = 'Informe a matrícula do usuário para emprestar um livro.';
+    return;
   }
+
+  this.bibliotecaService.emprestarLivro(this.usuarioMat, idLivro).subscribe({
+    next: (livroEmprestado) => {
+      const livro = this.livros.find(l => l.id === idLivro);
+      const tituloLivro = livro ? livro.titulo : 'o livro';
+      
+      this.snackBar.open(
+        `Empréstimo do livro "${tituloLivro}" realizado com sucesso para o usuário de matrícula ${this.usuarioMat}`,
+        'Fechar',
+        {
+          duration: 7000, // 5 segundos
+          panelClass: ['success-snackbar'],
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
+        }
+      );
+      
+      this.mensagem = 'Livro emprestado com sucesso!';
+      this.erro = '';
+      this.carregarLivros();
+    },
+    error: (err) => {
+      this.erro = 'Erro ao emprestar livro: ' + (err.error?.message || err.message || err.statusText);
+      this.mensagem = '';
+    }
+  });
+}
 
   devolverLivro(idLivro: number): void {
     if (!this.usuarioId) {

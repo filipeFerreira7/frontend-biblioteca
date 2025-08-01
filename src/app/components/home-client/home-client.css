@@ -36,3 +36,26 @@ p{
   text-align: center;
   font-weight: 400;
 }
+.custom-icon-button {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  outline: none !important;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.custom-icon-button mat-icon {
+  color: white !important;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.custom-icon-button:hover {
+  background-color: rgba(255, 255, 255, 0.25); /* mais visível */
+  mat-icon {
+    color: #000000 !important; /* opcional: muda a cor do ícone no hover */
+  }
+}

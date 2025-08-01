@@ -1,23 +1,21 @@
 <mat-toolbar class="header-bar">
-  <a [routerLink]="['/']" class="header-icon">
+  <a [routerLink]="['/']" class="header-icon-link">
     <img src="assets/img/img_1.png" class="header-icon" />
   </a>
-
   <div class="faixa-spacer"></div>
 </mat-toolbar>
 
-
 <div class="container">
-  <h2>Livros Disponíveis</h2>
+  <h2 class="titulo">Livros Disponíveis</h2>
 
   <div class="input-usuario">
-    <label for="usuarioId">ID do Usuário:</label>
+    <label for="usuarioId">Matrícula:</label>
     <input
-      type="number"
-      id="usuarioId"
-      [(ngModel)]="usuarioId"
-      placeholder="Digite seu ID"
-      min="1"
+      type="text"
+      id="matUsuario"
+      [(ngModel)]="usuarioMat"
+      placeholder="Digite sua matrícula aqui"
+      class="campo-matricula"
     />
   </div>
 

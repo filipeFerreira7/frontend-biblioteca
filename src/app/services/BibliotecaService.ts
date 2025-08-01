@@ -15,8 +15,8 @@ export class BibliotecaService {
     return this.http.get<Livro[]>(`${this.baseUrl}/listarLivrosDisponiveis`);
   }
 
-  emprestarLivro(idUser: number, idLivro: number): Observable<any> {
-    return this.http.patch(`${this.baseUrl}/emprestar/${idUser}/${idLivro}`, null);
+  emprestarLivro(matUser: String, idLivro: number): Observable<any> {
+    return this.http.patch(`${this.baseUrl}/emprestar/${matUser}/${idLivro}`, null);
   }
 
   devolverLivro(idUser: number, idLivro: number): Observable<any> {

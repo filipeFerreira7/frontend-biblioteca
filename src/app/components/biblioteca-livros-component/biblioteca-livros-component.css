@@ -1,49 +1,92 @@
+body {
+  background-color: #143640;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .container {
-  max-width: 700px;
-  margin: 0 auto;
+  max-width: 600px;
+  margin: 2.5rem auto;
   padding: 1rem;
-  font-family: Arial, sans-serif;
+  background-color: #ebebeb;
+  border-radius: 12px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.container:hover{
+   transform: scale(1.03);
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .input-usuario {
-  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 2rem;
+  transition: box-shadow 0.3 ease;
 }
 
-input[type='number'] {
-  padding: 0.4rem;
-  width: 100px;
-  font-size: 1rem;
+.campo-matricula {
+  padding: 0.8rem;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+  width: 100%;
+  max-width: 400px;
+  background-color: #ffffff;
+  
 }
 
+.input-usuario:focus {
+  box-shadow: 0 0 0 2px #143640; /* Substitui a borda padrão por sombra */
+}
 .lista-livros {
   list-style: none;
   padding: 0;
 }
 
 .livro-card {
-  border: 1px solid #ddd;
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 10px;
   padding: 1rem;
   margin-bottom: 1rem;
-  border-radius: 6px;
-  background-color: #fafafa;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.livro-card:hover {
+  transform: scale(1.015);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
 
 .livro-card h3 {
-  margin: 0 0 0.5rem 0;
+  margin-top: 0;
 }
 
 .btn {
   cursor: pointer;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
   font-weight: bold;
-  transition: background-color 0.3s ease;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
 }
 
 .btn-emprestar {
   background-color: #28a745;
+  color: white;
 }
 
 .btn-emprestar:hover {
@@ -52,6 +95,7 @@ input[type='number'] {
 
 .btn-devolver {
   background-color: #dc3545;
+  color: white;
 }
 
 .btn-devolver:hover {
@@ -59,9 +103,9 @@ input[type='number'] {
 }
 
 .mensagem {
-  padding: 0.7rem;
-  margin-bottom: 1rem;
-  border-radius: 4px;
+  padding: 1rem;
+  border-radius: 6px;
+  font-size: 1rem;
 }
 
 .mensagem.sucesso {
@@ -73,15 +117,7 @@ input[type='number'] {
   background-color: #f8d7da;
   color: #721c24;
 }
-.header-bar {
-  background-color: rgb(20, 50, 60); /* um pouco mais escuro que o body */
-  color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* sombra sutil para destacar */
-  padding: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+
 .header-bar {
   background-color: rgb(20, 50, 60); /* um pouco mais escuro que o body */
   color: white;
@@ -98,8 +134,8 @@ input[type='number'] {
 .header-icon {
   width: 90px;
   height: auto;
-  margin: 0 2px;
-  padding: 2%;
+  margin: 0 25px;
+  padding: 6%;
   padding-bottom: 1%;
 }
 
@@ -107,4 +143,15 @@ input[type='number'] {
   display: flex;
   align-items: center;
   text-decoration: none;
+}
+
+/* Adicione ao seu arquivo CSS */
+.success-snackbar {
+  background-color: #4caf50; /* Verde */
+  color: white;
+}
+
+/* Se quiser estilizar também o botão de fechar */
+.success-snackbar .mat-simple-snackbar-action {
+  color: white;
 }

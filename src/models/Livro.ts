@@ -4,6 +4,7 @@ export class Livro {
   id!: number;
   titulo!: string;
   autor!: string;
+  descricao!: string;
   dataEmprestimo!: Date;
   dataDevolucao!: Date;
   disponivel!: boolean;
